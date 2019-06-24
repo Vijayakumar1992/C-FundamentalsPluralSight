@@ -1,6 +1,8 @@
 using System;
 using Xunit;
 
+
+//HOW TO UNIT TEST THE PROJECT
 namespace GradeBook.Tests
 {
     public class BookTests
@@ -24,7 +26,12 @@ namespace GradeBook.Tests
             book.AddGrade(77.5);
 
             //act -- arrange the date to act on 
-            book.ShowStatistics();
+            var result = book.GetStatistics();
+
+            //asserts
+            Assert.Equal(85.7, result.Average, 1);
+            Assert.Equal(90.5, result.High, 1);
+            Assert.Equal(77.5, result.Low, 1);
         }
     }
 }
